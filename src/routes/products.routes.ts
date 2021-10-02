@@ -11,7 +11,7 @@ const productRouter = Router();
 
 productRouter.get('/',getProducts);
 productRouter.post('/', creatProduct);
-productRouter.put('/update/:code', updateProduct);
-productRouter.delete('/delete/:code', deleteProduct);
+productRouter.put('/update/:id', updateProduct);
+productRouter.delete('/delete/:id', deleteProduct);
  
 export default productRouter
