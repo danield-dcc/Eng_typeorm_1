@@ -1,17 +1,12 @@
-
-import "reflect-metadata";
-import {Connection, createConnection} from "typeorm";
-import Router from 'express'
-import productRouter from './products.routes'
-
+import { Router } from "express";
+import clientRouter from './client.routes'
 
 
 
 createConnection();
 const routes = Router()
 
-
-routes.use('/products', productRouter)
+routes.use("/client", clientRouter)
 
 export default routes
 
