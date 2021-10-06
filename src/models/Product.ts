@@ -19,9 +19,9 @@ export default class Product {
     sellPrice: number;
 
     @Column("simple-array")
-    tag: Array<Product>;
+    tag: string[];
 
-    @Column()
+    @Column({ default: 0, nullable: true })
     lovers: number;
 
 }
