@@ -1,5 +1,5 @@
-import { getCustomRepository } from 'typeorm';
-import {ClientRepository} from '../repositories/ClientRepository';
+import { getCustomRepository } from "typeorm";
+import { ClientRepository } from "../repositories/ClientRepository";
 
 interface Request {
   name: string;
@@ -19,7 +19,7 @@ export default class ClientService {
     });
 
     if (clientAlreadyExists) {
-      throw new Error('Clinte já existe');
+      throw new Error("Clinte já existe");
     }
 
     const client = clientRepository.create({
@@ -49,7 +49,7 @@ export default class ClientService {
     const client = await clientRepository.findOne(id);
 
     if (!client) {
-      throw new Error('Cliente não encontrado!');
+      throw new Error("Cliente não encontrado!");
     }
 
     return client;
@@ -61,7 +61,7 @@ export default class ClientService {
     const client = await clientRepository.findOne(id);
 
     if (!client) {
-      throw new Error('Cliente não encontrado!');
+      throw new Error("Cliente não encontrado!");
     }
 
     const deleted = await clientRepository.delete(id);
@@ -71,14 +71,14 @@ export default class ClientService {
 
   async Update(
     id: string,
-    { name, cpf, mail, phone, birthday, address }: Request,
+    { name, cpf, mail, phone, birthday, address }: Request
   ) {
     const clientRepository = getCustomRepository(ClientRepository);
 
     const client = await clientRepository.findOne(id);
 
     if (!client) {
-      throw new Error('Cliente não encontrado!');
+      throw new Error("Cliente não encontrado!");
     }
 
     await clientRepository.update(id, {

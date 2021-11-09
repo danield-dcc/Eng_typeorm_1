@@ -1,33 +1,11 @@
 //import { v4 as uuidv4 } from 'uuid';
-import { Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn, CreateDateColumn } from 'typeorm';
+import { Entity, Column } from "typeorm";
+import { IsString } from "class-validator";
+import ClientProduct from "./ClientProduct";
 
 @Entity()
-export default class Client {
-    @PrimaryGeneratedColumn("uuid")
-    id: string;
-
-    @Column()
-    name: string;
-
-    @Column()
-    phone: string;
-
-    @Column()
-    mail: string;
-
-    @Column()
-    cpf: string;
-
-    @Column()
-    birthday: Date;
-
-    @Column()
-    address: string;
-
-    @CreateDateColumn()
-    createdAt: Date;
-
-    @UpdateDateColumn()
-    updatedAt: Date;
-
+export default class Client extends ClientProduct {
+  @Column({ nullable: true })
+  @IsString()
+  cpf: string;
 }
