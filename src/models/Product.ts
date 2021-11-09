@@ -1,27 +1,33 @@
 //import { v4 as uuidv4 } from 'uuid';
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { IsNumber, IsString } from "class-validator";
 
 @Entity()
 export default class Product {
-    @PrimaryGeneratedColumn("uuid")
-    id: string;
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
-    @Column()
-    code: number;
+  @Column()
+  @IsNumber()
+  code: number;
 
-    @Column()
-    description: string;
+  @Column()
+  @IsString()
+  description: string;
 
-    @Column('float')
-    byPrice: number;
+  @Column("float")
+  @IsNumber()
+  byPrice: number;
 
-    @Column('float')
-    sellPrice: number;
+  @Column("float")
+  @IsNumber()
+  sellPrice: number;
 
-    @Column("simple-array")
-    tag: string[];
+  @Column("simple-array")
+  @IsString()
+  tag: string[];
 
-    @Column({ default: 0, nullable: true })
-    lovers: number;
-
+  @Column({ default: 0, nullable: true })
+  @IsNumber()
+  lovers: number;
 }
