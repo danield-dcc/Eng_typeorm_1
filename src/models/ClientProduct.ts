@@ -7,6 +7,7 @@ import {
 } from "typeorm";
 import { IsEmail, IsString, IsDate } from "class-validator";
 
+
 export default abstract class ClientProduct {
   @PrimaryGeneratedColumn("uuid")
   id: string;
