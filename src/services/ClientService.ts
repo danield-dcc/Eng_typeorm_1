@@ -38,7 +38,7 @@ export default class ClientService {
   async list() {
     const clientRepository = getCustomRepository(ClientRepository);
 
-    const all = await clientRepository.find();
+    const all = await clientRepository.find({cache: true});
 
     return all;
   }
