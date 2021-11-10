@@ -31,6 +31,7 @@
       "prompt-sync": "^4.2.0",
       "reflect-metadata": "^0.1.10",
       "typeorm": "0.2.37",
+      "typeorm-encrypted": "^0.6.0",
       "uuid": "^8.3.2"
    }
 }
