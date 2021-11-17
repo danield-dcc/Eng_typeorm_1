@@ -38,7 +38,7 @@ export default class ClientService {
   async list() {
     const clientRepository = getCustomRepository(ClientRepository);
 
-    const all = await clientRepository.find({cache: true});
+    const all = await clientRepository.find({ cache: true });
 
     return all;
   }
@@ -58,7 +58,7 @@ export default class ClientService {
   async delete(id: string) {
     const clientRepository = getCustomRepository(ClientRepository);
 
-    const client = await clientRepository.findOne(id);
+    const client = await clientRepository.findOne(id, { cache: true });
 
     if (!client) {
       throw new Error("Cliente não encontrado!");
